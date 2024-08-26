@@ -5,7 +5,7 @@ const moment = require('moment');
 const getAllTransaction = async (req, res) => {
     try {
         const { frequency, selectedDate, type } = req.body
-        console.log("fkjdfhlaskfd",req.body);
+        // console.log("fkjdfhlaskfd",req.body);
         const transactionsTillNow = await transactionModel.find({
             ...(frequency !== "custom"
                 ? {
@@ -31,10 +31,10 @@ const getAllTransaction = async (req, res) => {
 
 const editTransaction = async (req, res) => {
     try {
-        console.log("edit",req.body);
-       const data=await transactionModel.findOneAndUpdate({ _id: req.body.transactionId },
+        console.log("edit", req.body);
+        const data = await transactionModel.findOneAndUpdate({ _id: req.body.transactionId },
             req.body.payload)
-            console.log(req.body);
+        console.log(req.body);
         res.status(200).json(data);
     } catch (error) {
         console.log(error);
